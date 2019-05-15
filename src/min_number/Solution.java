@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /*
- * ÊäÈëÒ»¸öÕýÕûÊýÊý×é£¬°ÑÊý×éÀïËùÓÐÊý×ÖÆ´½ÓÆðÀ´ÅÅ³ÉÒ»¸öÊý£¬´òÓ¡ÄÜÆ´½Ó³öµÄËùÓÐÊý×ÖÖÐ×îÐ¡µÄÒ»¸ö¡£
- * ÀýÈçÊäÈëÊý×é{3£¬32£¬321}£¬Ôò´òÓ¡³öÕâÈý¸öÊý×ÖÄÜÅÅ³ÉµÄ×îÐ¡Êý×ÖÎª321323¡£
+ * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½Æ´ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½{3ï¿½ï¿½32ï¿½ï¿½321}ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å³Éµï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Îª321323ï¿½ï¿½
  */
 public class Solution {
 	public String PrintMinNumber(int[] numbers) {
@@ -16,9 +16,9 @@ public class Solution {
 		n = numbers.length;
 
 		for (int i = 0; i < n; i++) {
-			list.add(numbers[i]);// ½«Êý×é·ÅÈëarrayListÖÐ
+			list.add(numbers[i]);// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½arrayListï¿½ï¿½
 		}
-		// ÊµÏÖÁËComparator½Ó¿ÚµÄcompare·½·¨£¬½«¼¯ºÏÔªËØ°´ÕÕcompare·½·¨µÄ¹æÔò½øÐÐÅÅÐò
+		// Êµï¿½ï¿½ï¿½ï¿½Comparatorï¿½Ó¿Úµï¿½compareï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø°ï¿½ï¿½ï¿½compareï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Collections.sort(list, new Comparator<Integer>() {
 
 			@Override
