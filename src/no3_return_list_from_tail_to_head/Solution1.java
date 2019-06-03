@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 /**
  * 非递归
+ * 先反转链表，再把链表加入到ArrayList中
  */
 
 public class Solution1 {
