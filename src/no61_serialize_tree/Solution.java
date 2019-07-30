@@ -6,7 +6,7 @@ package no61_serialize_tree;
 public class Solution {
     private int index = -1;
 
-    String Serialize(TreeNode root) {
+    String serialize(TreeNode root) {
         StringBuffer sb = new StringBuffer();
         if (root == null) {
             sb.append("#,");
@@ -14,19 +14,19 @@ public class Solution {
         }
 
         sb.append(root.val + ",");
-        sb.append(Serialize(root.left));
-        sb.append(Serialize(root.right));
+        sb.append(serialize(root.left));
+        sb.append(serialize(root.right));
         return sb.toString();
     }
 
-    TreeNode Deserialize(String str) {
+    TreeNode deserialize(String str) {
         TreeNode node = null;
         index++;
         String[] strr = str.split(",");
         if (strr[index] != "#") {
             node = new TreeNode(Integer.valueOf(strr[index]));
-            node.left = Deserialize(str);
-            node.right = Deserialize(str);
+            node.left = deserialize(str);
+            node.right = deserialize(str);
         }
         return node;
     }

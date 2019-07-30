@@ -4,7 +4,7 @@ package no55_cycle_list;
  * 给一个链表，若其中包含环，请找出该链表的环的入口结点，否则，输出null。
  */
 public class Solution {
-    public ListNode EntryNodeOfLoop(ListNode pHead) {
+    public ListNode entryNodeOfLoop(ListNode pHead) {
         if (pHead == null || pHead.next == null) return null;
         ListNode p1 = pHead;
         ListNode p2 = pHead;
