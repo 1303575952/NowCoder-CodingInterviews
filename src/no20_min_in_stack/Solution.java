@@ -1,59 +1,38 @@
 package no20_min_in_stack;
 
-import java.util.Stack;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
  */
 public class Solution {
-    private int size;
-    private int min = Integer.MAX_VALUE;
-    private Stack<Integer> minStack = new Stack<Integer>();
-    private Integer[] elements = new Integer[10];
+    private ArrayList<Integer> dataList = new ArrayList<>();
+    private ArrayList<Integer> minList = new ArrayList<>();
+    private Integer min = Integer.MAX_VALUE;
 
     public void push(int node) {
-        ensureCapacity(size + 1);
-        elements[size++] = node;
+        dataList.add(node);
         if (node <= min) {
-            minStack.push(node);
-            min = minStack.peek();
+            minList.add(node);
+            min = node;
         } else {
-            minStack.push(min);
+            minList.add(min);
         }
-        //    System.out.println(min+"");
     }
 
-    private void ensureCapacity(int size) {
-        // TODO Auto-generated method stub
-        int len = elements.length;
-        if (size > len) {
-            int newLen = (len * 3) / 2 + 1; //每次扩容方式
-            elements = Arrays.copyOf(elements, newLen);
-        }
+    public int getSize() {
+        return dataList.size();
     }
 
     public void pop() {
-        Integer top = top();
-        if (top != null) {
-            elements[size - 1] = (Integer) null;
-        }
-        size--;
-        minStack.pop();
-        min = minStack.peek();
-        //    System.out.println(min+"");
+        int end = getSize() - 1;
+        dataList.remove(end);
+        minList.remove(end);
+        min = minList.get(getSize() - 1);
     }
 
     public int top() {
-        if (!empty()) {
-            if (size - 1 >= 0)
-                return elements[size - 1];
-        }
-        return (Integer) null;
-    }
-
-    public boolean empty() {
-        return size == 0;
+        return dataList.get(getSize() - 1);
     }
 
     public int min() {
