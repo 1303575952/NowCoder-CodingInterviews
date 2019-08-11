@@ -6,7 +6,7 @@ package no35_inverse_pairs;
  * 即输出P%1000000007
  */
 public class Solution {
-    public int InversePairs(int[] array) {
+    public int inversePairs(int[] array) {
         if (array == null || array.length == 0) {
             return 0;
         }
@@ -14,18 +14,18 @@ public class Solution {
         for (int i = 0; i < array.length; i++) {
             copy[i] = array[i];
         }
-        int count = InversePairsCore(array, copy, 0, array.length - 1);
+        int count = inversePairsCore(array, copy, 0, array.length - 1);
         return count;
 
     }
 
-    private int InversePairsCore(int[] array, int[] copy, int low, int high) {
+    private int inversePairsCore(int[] array, int[] copy, int low, int high) {
         if (low == high) {
             return 0;
         }
         int mid = (low + high) >> 1;
-        int leftCount = InversePairsCore(array, copy, low, mid) % 1000000007;
-        int rightCount = InversePairsCore(array, copy, mid + 1, high) % 1000000007;
+        int leftCount = inversePairsCore(array, copy, low, mid) % 1000000007;
+        int rightCount = inversePairsCore(array, copy, mid + 1, high) % 1000000007;
         int count = 0;
         int i = mid;
         int j = high;

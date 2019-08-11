@@ -4,7 +4,7 @@ package no36_first_common_node;
  * 输入两个链表，找出它们的第一个公共结点。
  */
 public class Solution {
-    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+    public ListNode findFirstCommonNode(ListNode pHead1, ListNode pHead2) {
         if (pHead1 == null || pHead2 == null) {
             return null;
         }

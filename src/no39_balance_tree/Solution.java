@@ -1,9 +1,12 @@
 package no39_balance_tree;
 
+/**
+ * 输入一棵二叉树，判断该二叉树是否是平衡二叉树。
+ */
 public class Solution {
     private boolean isBalanced = true;
 
-    public boolean IsBalanced_Solution(TreeNode root) {
+    public boolean isBalancedTree(TreeNode root) {
 
         getDepth(root);
         return isBalanced;

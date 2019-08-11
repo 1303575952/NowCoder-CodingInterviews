@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
  */
 //use linkedhashmap to keep the order
 public class Solution {
-    public int FirstNotRepeatingChar(String str) {
+    public int firstNotRepeatingChar(String str) {
         LinkedHashMap<Character, Integer> map = new LinkedHashMap<Character, Integer>();
         for (int i = 0; i < str.length(); i++) {
             if (map.containsKey(str.charAt(i))) {

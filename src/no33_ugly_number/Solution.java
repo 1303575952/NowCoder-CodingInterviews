@@ -6,7 +6,7 @@ package no33_ugly_number;
  * 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。
  */
 public class Solution {
-    public int GetUglyNumber_Solution(int index) {
+    public int getUglyNumber(int index) {
 
         if (index <= 0)
             return 0;

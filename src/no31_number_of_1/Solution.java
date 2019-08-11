@@ -6,7 +6,7 @@ package no31_number_of_1;
  * ACMer希望你们帮帮他,并把问题更加普遍化,可以很快的求出任意非负整数区间中1出现的次数（从1 到 n 中1出现的次数）。
  */
 public class Solution {
-    public int NumberOf1Between1AndN_Solution(int n) {
+    public int numberOf1Between1AndN(int n) {
         int count = 0;
         while (n > 0) {
             String str = String.valueOf(n);
