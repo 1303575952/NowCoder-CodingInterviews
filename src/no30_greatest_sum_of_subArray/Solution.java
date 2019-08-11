@@ -7,7 +7,7 @@ package no30_greatest_sum_of_subArray;
  * 给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)
  */
 public class Solution {
-    public int FindGreatestSumOfSubArray(int[] array) {
+    public int findGreatestSumOfSubArray(int[] array) {
         int res = array[0];
         int max = array[0];
         for (int i = 1; i < array.length; i++) {
