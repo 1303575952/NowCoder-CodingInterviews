@@ -8,26 +8,26 @@ package no44_reverse_sentence;
  * Cat对一一的翻转这些单词顺序可不在行，你能帮助他么？
  */
 public class Solution {
-	public String ReverseSentence(String str) {
-		if (str == null) {
-			return null;
-		}
-		if (str.trim().equals("")) {
-			return str;
-		}
-		String string = str;
-		String[] strings = string.split(" ");
-		StringBuilder sBuilder = new StringBuilder();
-		for (int i = strings.length - 1; i >= 0; i--) {
-			if (i == 0) {
-				sBuilder.append(strings[i]);
-			} else {
-				sBuilder.append(strings[i]);
-				sBuilder.append(" ");
-			}
-		}
+    public String reverseSentence(String str) {
+        if (str == null) {
+            return null;
+        }
+        if (str.trim().equals("")) {
+            return str;
+        }
+        String string = str;
+        String[] strings = string.split(" ");
+        StringBuilder sBuilder = new StringBuilder();
+        for (int i = strings.length - 1; i >= 0; i--) {
+            if (i == 0) {
+                sBuilder.append(strings[i]);
+            } else {
+                sBuilder.append(strings[i]);
+                sBuilder.append(" ");
+            }
+        }
 
-		String string2 = sBuilder.toString();
-		return string2;
-	}
+        String string2 = sBuilder.toString();
+        return string2;
+    }
 }
