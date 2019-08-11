@@ -1,5 +1,7 @@
 package no45_continuous;
 
+import java.util.Arrays;
+
 /**
  * LL今天心情特别好,因为他去买了一副扑克牌,发现里面居然有2个大王,2个小王(一副牌原本是54张^_^)...
  * 他随机从中抽出了5张牌,想测测自己的手气,看看能不能抽到顺子,如果抽到的话,他决定去买体育彩票,嘿嘿！！
@@ -9,32 +11,37 @@ package no45_continuous;
  * LL决定去买体育彩票啦。
  * 现在,要求你使用这幅牌模拟上面的过程,然后告诉我们LL的运气如何， 如果牌能组成顺子就输出true，否则就输出false。
  * 为了方便起见,你可以认为大小王是0。
+ * <p>
+ * 1、排序
+ * 2、计算所有相邻数字间隔总数
+ * 3、计算0的个数
+ * 4、如果2、3相等，就是顺子
+ * 5、如果出现对子，则不是顺子
  */
 public class Solution {
-    private boolean isContinuous(int[] numbers) {
-        int[] arr = new int[14];
-        int min = Integer.MAX_VALUE;
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < numbers.length; i++) {
-            arr[numbers[i]]++;
-            if (numbers[i] != 0 && arr[numbers[i]] >= 2) {
+    public boolean isContinuous(int[] numbers) {
+        int numOfZero = 0;
+        int numOfInterval = 0;
+        int length = numbers.length;
+        if (length == 0) {
+            return false;
+        }
+        Arrays.sort(numbers);
+        for (int i = 0; i < length - 1; i++) {
+            // 计算癞子数量
+            if (numbers[i] == 0) {
+                numOfZero++;
+                continue;
+            }
+            // 对子，直接返回
+            if (numbers[i] == numbers[i + 1]) {
                 return false;
             }
-            if (numbers[i] != 0 && numbers[i] < min) {
-                min = numbers[i];
-            }
-            if (numbers[i] != 0 && numbers[i] > max) {
-                max = numbers[i];
-            }
+            numOfInterval += numbers[i + 1] - numbers[i] - 1;
         }
-        if (max - min + 1 <= numbers.length) {
+        if (numOfZero >= numOfInterval) {
             return true;
         }
         return false;
-    }
-
-    public static void main(String[] args) {
-        int[] numbers = {2, 5, 3, 0, 0};
-        System.out.println(new Solution().isContinuous(numbers));
     }
 }
