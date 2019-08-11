@@ -8,7 +8,7 @@ import java.util.Arrays;
  * 由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
  */
 public class Solution {
-    public int MoreThanHalfNum_Solution(int[] array) {
+    public int moreThanHalfNum(int[] array) {
         int len = array.length;
         if (len < 1) {
             return 0;
