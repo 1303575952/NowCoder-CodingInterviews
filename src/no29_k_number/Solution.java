@@ -1,50 +1,37 @@
 package no29_k_number;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 /*
  * 输入n个整数，找出其中最小的K个数。
  * 例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。
  */
 public class Solution {
-    public ArrayList<Integer> GetLeastNumbers_Solution(int[] input, int k) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+    public ArrayList<Integer> getLeastNumbers(int[] input, int k) {
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        int length = input.length;
+        if (k > length || k == 0) {
+            return result;
+        }
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(k, new Comparator<Integer>() {
 
-        if (input == null || input.length <= 0 || input.length < k) {
-            return list;
-        }
-        for (int len = k / 2 - 1; len >= 0; len--) {
-            adjustMaxHeapSort(input, len, k - 1);
-        }
-        int tmp;
-        for (int i = k; i < input.length; i++) {
-            if (input[i] < input[0]) {
-                tmp = input[0];
-                input[0] = input[i];
-                input[i] = tmp;
-                adjustMaxHeapSort(input, 0, k - 1);
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        for (int i = 0; i < length; i++) {
+            if (maxHeap.size() != k) {
+                maxHeap.offer(input[i]);
+            } else if (maxHeap.peek() > input[i]) {
+                maxHeap.offer(input[i]);
             }
         }
-        for (int j = 0; j < k; j++) {
-            list.add(input[j]);
+        for (Integer integer : maxHeap) {
+            result.add(integer);
         }
-        return list;
-    }
-
-    public void adjustMaxHeapSort(int[] input, int pos, int length) {
-        int temp;
-        int child;
-        for (temp = input[pos]; 2 * pos + 1 <= length; pos = child) {
-            child = 2 * pos + 1;
-            if (child < length && input[child] < input[child + 1]) {
-                child++;
-            }
-            if (input[child] > temp) {
-                input[pos] = input[child];
-            } else {
-                break;
-            }
-        }
-        input[pos] = temp;
+        return result;
     }
 }
